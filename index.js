@@ -1,21 +1,13 @@
-const fs=require("fs");
-const {add,sub,mult,div}=require("./lib/math");
+import express from "express";
+import cookieParser from "cookie-parser";
+import assignmentRouter from "./Routes/AssingmentRouter.js"
+const app=express();
 
-const columns=["Operations","Num1","Num2","Result"]
+app.use(express.json());
+app.use(cookieParser());
 
-const rows=[
-    columns,
-    ["Addition",10,5,add(10,5)],
-    ["Subtraction",10,5,sub(10,5)],
-    ["Multiplication",10,5,mult(10,5)],
-    ["Division",10,5,div(10,5)],
-]
+app.use("/api/v1/Assignments",assignmentRouter);
 
-const processedRowsData=rows.reduce((acc,row)=>{
-    return acc+=row.join(",")+"\n";
-},``)
-
-
-fs.writeFileSync("./result.csv",processedRowsData,(error)=>{
-    console.log("Error");
-})
+app.listen(8000,()=>{
+    console.log(`Server is listening on 8000`)
+});
