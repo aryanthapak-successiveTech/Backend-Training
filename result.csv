@@ -1,5 +1,5 @@
 Operations,Num1,Num2,Result
-Addition,10,5,15
-Subtraction,10,5,5
-Multiplication,10,5,50
-Division,10,5,2
+Addition,1,2,12
+Subtraction,1,2,-1
+Multiplication,1,2,2
+Division,1,2,0.5

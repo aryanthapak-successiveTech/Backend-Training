@@ -1,21 +1,29 @@
-import * as fs from "fs";
-import { add,sub,mult,div } from "../lib/math";
+import fs from "fs";
+import { add, sub, mult, div } from "../lib/math.js";
+import { closeInput, takeInput } from "../lib/Input.js";
 
-const columns=["Operations","Num1","Num2","Result"]
+const performOpiton = async () => {
+  const num1 = await takeInput("Enter a number : ");
+  const num2 = await takeInput("Enter another number : ");
+  closeInput();
 
-const rows=[
+  const columns = ["Operations", "Num1", "Num2", "Result"];
+
+  const rows = [
     columns,
-    ["Addition",10,5,add(10,5)],
-    ["Subtraction",10,5,sub(10,5)],
-    ["Multiplication",10,5,mult(10,5)],
-    ["Division",10,5,div(10,5)],
-]
+    ["Addition", num1, num2, add(num1, num2)],
+    ["Subtraction", num1, num2, sub(num1, num2)],
+    ["Multiplication", num1, num2, mult(num1, num2)],
+    ["Division", num1, num2, div(num1, num2)],
+  ];
 
-const processedRowsData=rows.reduce((acc,row)=>{
-    return acc+=row.join(",")+"\n";
-},``)
+  const processedRowsData = rows.reduce((acc, row) => {
+    return (acc += row.join(",") + "\n");
+  }, ``);
 
+  fs.writeFileSync("./result.csv", processedRowsData, (error) => {
+    console.log(error);
+  });
+};
 
-fs.writeFileSync("./result.csv",processedRowsData,(error)=>{
-    console.log("Error");
-})
+performOpiton();
