@@ -13,3 +13,4 @@ export function takeInput(query) {
 export const closeInput = () => {
     prompt.close();
 };
+//# sourceMappingURL=Input.js.map

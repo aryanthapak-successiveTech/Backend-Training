@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import assignmentRouter from "./Routes/AssingmentRouter";
+import assignmentRouter from "./Routes/AssingmentRoutes.js";
 
 const app = express();
 

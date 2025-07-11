@@ -11,3 +11,4 @@ export const mult = (num1, num2) => {
 export const div = (num1, num2) => {
     return lodash.divide(num1, num2);
 };
+//# sourceMappingURL=math.js.map

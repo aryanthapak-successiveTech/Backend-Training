@@ -1,14 +1,25 @@
+import { NextFunction, Request, Response } from "express";
 import { dummyData } from "../mockData.js";
 
-export const getUsers = async (req, res, next) => {
+export const getUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<Response> => {
   try {
+    const limitStr = req.query.limit as string | undefined;
+    const pageStr = req.query.page as string | undefined;
+
     if (!req.query.limit || !req.query.page) {
       return res.status(200).json({
         status: "Successful",
         data: dummyData,
       });
     }
-    const { limit, page } = req.query;
+
+    const limit: number = Number(limitStr);
+    const page: number = Number(pageStr);
+
     const startIdx = (page - 1) * limit;
     const filteredData = dummyData.slice(startIdx, startIdx + Number(limit));
     if (filteredData.length == 0) {
@@ -28,4 +39,3 @@ export const getUsers = async (req, res, next) => {
     });
   }
 };
- 

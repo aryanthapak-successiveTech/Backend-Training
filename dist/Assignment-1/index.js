@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import fs from "fs";
-import { add, sub, mult, div } from "../lib/math.js";
-import { closeInput, takeInput } from "../lib/Input.js";
+import { add, sub, mult, div } from "../lib/math";
+import { closeInput, takeInput } from "../lib/Input";
 const performOpiton = () => __awaiter(void 0, void 0, void 0, function* () {
     const num1 = Number(yield takeInput("Enter a number : "));
     const num2 = Number(yield takeInput("Enter another number : "));
@@ -30,3 +30,4 @@ const performOpiton = () => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 performOpiton();
+//# sourceMappingURL=index.js.map
