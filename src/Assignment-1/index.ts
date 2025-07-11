@@ -1,10 +1,10 @@
 import fs from "fs";
-import { add, sub, mult, div } from "../lib/math.js";
-import { closeInput, takeInput } from "../lib/Input.js";
+import { add, sub, mult, div } from "../lib/math";
+import { closeInput, takeInput } from "../lib/Input";
 
 const performOpiton = async () => {
-  const num1 = await takeInput("Enter a number : ");
-  const num2 = await takeInput("Enter another number : ");
+  const num1 = Number(await takeInput("Enter a number : "));
+  const num2 = Number(await takeInput("Enter another number : "));
   closeInput();
 
   const columns = ["Operations", "Num1", "Num2", "Result"];
@@ -21,7 +21,7 @@ const performOpiton = async () => {
     return (acc += row.join(",") + "\n");
   }, ``);
 
-  fs.writeFileSync("./result.csv", processedRowsData, (error) => {
+  fs.writeFile("./result.csv", processedRowsData, (error) => {
     console.log(error);
   });
 };

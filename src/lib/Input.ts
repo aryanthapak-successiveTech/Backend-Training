@@ -7,11 +7,12 @@ const prompt=readLine.createInterface({
 
 
 
-export const takeInput=(query)=>new Promise((resolve,reject)=>{
+export function takeInput(query:string):Promise<string>{
+    return new Promise((resolve,reject)=>{
     prompt.question(query,(data)=>{
         resolve(data);
     })
-})
+})}
 
 export const closeInput=()=>{
     prompt.close();
