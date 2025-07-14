@@ -1,17 +1,26 @@
 {
   "dependencies": {
-    "lodash": "^4.17.21"
+    "@types/cookie-parser": "^1.4.9",
+    "@types/express": "^5.0.3",
+    "@types/lodash": "^4.17.20",
+    "axios": "^1.10.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "lodash": "^4.17.21",
+    "typescript": "^5.8.3"
   },
   "name": "backend-training",
   "version": "1.0.0",
   "description": "## Here are the steps to install the stable LTS version of Node.js:",
   "main": "index.js",
+  "type":"module",
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":""
   },
   "repository": {
     "type": "git",
