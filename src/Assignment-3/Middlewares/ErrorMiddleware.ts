@@ -1,0 +1,18 @@
+import { ErrorRequestHandler,NextFunction, Request, Response } from "express";
+
+export class ApiError extends Error{
+    statusCode: number;
+    constructor(statusCode:number,msg:string){
+        super(msg);
+        this.statusCode=statusCode;
+    }
+}
+
+export const AppError=(error:ApiError,req:Request,res:Response,next:NextFunction)=>{
+    const errStatus=error.statusCode||500;
+    const errMsg=error.message||"Something went wrong";
+    return res.status(errStatus).json({
+        status:"Failed",
+        message:errMsg
+    })
+}
