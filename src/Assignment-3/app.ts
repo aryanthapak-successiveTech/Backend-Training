@@ -3,8 +3,8 @@ import { loginUser } from "./Controller/AuthController.js";
 import { checkAuth } from "./Middlewares/AuthMiddleware.js";
 import { dataSeeder } from "./Controller/DataController.js";
 import { LogMiddleware } from "./Middlewares/LogMiddleware.js";
-import { AppError } from "./Middlewares/ErrorMiddleware.js";
-import { rateLimit } from "./Middlewares/RateLimiterMiddleware.js";
+import { AppError } from "../Middleware/ErrorMiddleware.js";
+import { rateLimit } from "../Middleware/RateLimiterMiddleware.js";
 const authRouter = express.Router();
 authRouter.route("/Login").post(loginUser);
 authRouter
