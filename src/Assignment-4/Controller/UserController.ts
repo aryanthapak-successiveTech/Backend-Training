@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -41,13 +41,18 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
-export const getSeedData=(req:Request,res:Response)=>{
-  const {count}=req.params;
+export const getSeedData=(req:Request,res:Response,next:NextFunction)=>{
+  try{
+    const {count}=req.params;
   const users=seedData(Number(count));
   return res.status(200).json({
     status:"Success",
     data:users
   })
+  }
+  catch(err){
+    next(err);
+  }
 }
 
 
