@@ -33,6 +33,5 @@ export const rateLimit = (timeInterval: number, maxRequests: number) => {
     }
 
     return next(new ApiError(429, "Too many requests"));
-
   };
 };
