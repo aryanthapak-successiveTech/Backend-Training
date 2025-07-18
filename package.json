@@ -8,8 +8,7 @@
     "geoip-lite": "^1.4.10",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "lodash": "^4.17.21",
-    "typescript": "^5.8.3"
+    "lodash": "^4.17.21"
   },
   "name": "backend-training",
   "version": "1.0.0",
@@ -35,10 +34,14 @@
   },
   "homepage": "https://github.com/aryanthapak-successiveTech/Backend-Training#readme",
   "devDependencies": {
+    "@playwright/test": "^1.54.1",
     "@types/cookie-parser": "^1.4.9",
     "@types/express": "^5.0.3",
     "@types/joi": "^17.2.2",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/lodash": "^4.17.20"
+    "@types/lodash": "^4.17.20",
+    "playwright": "^1.54.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

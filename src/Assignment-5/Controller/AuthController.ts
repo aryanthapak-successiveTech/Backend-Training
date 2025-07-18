@@ -2,11 +2,8 @@ import jwt from "jsonwebtoken";
 import { credentialData } from "../Data/CredentialData.js";
 import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
+import { TokenInterface } from "../../Interfaces/Login.Interface.js";
 
-interface TokenInterface {
-  email: string;
-  role: "admin" | "user";
-}
 
 const signToken = (payload: TokenInterface) => {
   return new Promise((resolve, reject) => {

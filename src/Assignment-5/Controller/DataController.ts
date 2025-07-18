@@ -2,15 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 import { seedData } from "../../utils/seederUtil.js";
 import { dummyData } from "../../Assignment-2/mockData.js";
+import { RequestWithTokenInterface } from "../../Interfaces/Login.Interface.js";
 
-interface UserDetailsInterface {
-  email: string;
-  role: "admin" | "role";
-}
 
-interface RequestWithTokenInterface extends Request {
-  user?: UserDetailsInterface;
-}
 
 export const getDummyUsersData = (
   req: RequestWithTokenInterface,

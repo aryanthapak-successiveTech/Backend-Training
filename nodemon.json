@@ -1,0 +1,9 @@
+{
+  "execMap": {
+    "ts": "node --loader ts-node/esm src/index.ts"
+  },
+  "watch": [
+    "src/**/*.ts"
+  ],
+  "ext": "ts,json"
+}

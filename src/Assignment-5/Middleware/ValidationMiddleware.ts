@@ -1,16 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import Joi from "joi";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
+import { LoginInterface } from "../../Interfaces/Login.Interface.js";
 
 const detailsValidationSchema=Joi.object({
     email:Joi.string().required().email(),
     password:Joi.string().required().min(8)
 })
 
-interface LoginInterface{
-    email:string,
-    password:string
-}
 
 export const validateDetails=(req:Request,res:Response,next:NextFunction)=>{
     const {email,password}:LoginInterface=req.body;

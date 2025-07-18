@@ -3,15 +3,11 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { seedData } from "../../utils/seederUtil.js";
+import { StoredDataInterface } from "../../Interfaces/User.Inteface.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-interface StoredDataInterface {
-  username: string;
-  email: string;
-  password: string;
-}
 
 const writeFile = (data: StoredDataInterface) => {
   return new Promise<StoredDataInterface>((resolve, reject) => {

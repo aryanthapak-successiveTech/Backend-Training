@@ -1,15 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
+import { RequestWithTokenInterface } from "../../Interfaces/Login.Interface.js";
 
-interface UserDetailsInterface {
-  email: string;
-  role: "admin" | "role";
-}
-
-interface RequestWithTokenInterface extends Request {
-  user?: UserDetailsInterface;
-}
 
 export const decryptToken = (
   req: RequestWithTokenInterface,

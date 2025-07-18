@@ -1,10 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { CredentialInterface } from "../../Interfaces/User.Inteface";
 
-interface CredentialInterface {
-  email: string;
-  password: string;
-}
+
 
 const signToken = (payload: string) => {
   return new Promise((resolve, reject) => {

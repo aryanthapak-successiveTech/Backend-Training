@@ -1,8 +1,5 @@
-interface CredentialInterface{
-    email:string,
-    password:string,
-    role:"admin"|"user"
-}
+import { CredentialInterface } from "../../Interfaces/User.Inteface";
+
 
 export const credentialData:CredentialInterface[]=[
     {
