@@ -16,7 +16,7 @@ export const getDummyUsersData = (
   req: IRequestWithToken,
   res: Response,
   next: NextFunction
-) => {
+):Response|void => {
   try {
     const userDetails = req.user;
     const count = Number(req.params.count);

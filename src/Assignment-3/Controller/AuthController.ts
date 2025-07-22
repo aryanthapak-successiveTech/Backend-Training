@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-interface CredentialInterface {
+interface ICredential {
   email: string;
   password: string;
 }
 
-const signToken = (payload: string) => {
+const signToken = (payload: string) :Promise<String>=> {
   return new Promise((resolve, reject) => {
     const secret = process.env.JWT_SECRET;
     if (!secret) {
@@ -17,7 +17,7 @@ const signToken = (payload: string) => {
   });
 };
 
-const authenticateUser = (userEmail: string,password:string) => {
+const authenticateUser = (userEmail: string,password:string) :Boolean=> {
     if(userEmail=="aryanthapak@gmail.com" && password==="Aryan@@@"){
         return true;
     }
@@ -28,8 +28,8 @@ export const loginUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
-  const { email, password }: CredentialInterface = req.body;
+):Promise<Response> => {
+  const { email, password }: ICredential = req.body;
   const isAuthenticated=authenticateUser(email,password);
   if (!isAuthenticated) {
     return res.status(401).json({

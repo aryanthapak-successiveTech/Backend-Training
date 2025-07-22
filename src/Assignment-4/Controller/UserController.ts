@@ -7,14 +7,14 @@ import { seedData } from "../../utils/seederUtil.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-interface StoredDataInterface {
+interface IStoredData {
   username: string;
   email: string;
   password: string;
 }
 
-const writeFile = (data: StoredDataInterface) => {
-  return new Promise<StoredDataInterface>((resolve, reject) => {
+const writeFile = (data: IStoredData):Promise<IStoredData> => {
+  return new Promise<IStoredData>((resolve, reject) => {
     const storeData = JSON.stringify(data);
     const newFilePath = path.join(`${__dirname}/../StoredData.json`);
     fs.writeFile(newFilePath, storeData, (error) => {
@@ -23,7 +23,7 @@ const writeFile = (data: StoredDataInterface) => {
     resolve(data);
   });
 };
-export const registerUser = async (req: Request, res: Response) => {
+export const registerUser = async (req: Request, res: Response):Promise<Response> => {
   try {
     const { username, password, email } = req.body;
     const isStoredData = await writeFile({ username, password, email });
@@ -41,7 +41,7 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
-export const getSeedData=(req:Request,res:Response,next:NextFunction)=>{
+export const getSeedData=(req:Request,res:Response,next:NextFunction):Response|void=>{
   try{
     const {count}=req.params;
   const users=seedData(Number(count));
@@ -50,6 +50,7 @@ export const getSeedData=(req:Request,res:Response,next:NextFunction)=>{
     data:users
   })
   }
+  
   catch(err){
     next(err);
   }

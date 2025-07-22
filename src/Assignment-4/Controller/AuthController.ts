@@ -2,12 +2,12 @@ import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
-interface CredentialInterface {
+interface ICredential {
   email: string;
   password: string;
 }
 
-const signToken = (payload: string) => {
+const signToken = (payload: string):Promise<String> => {
   return new Promise((resolve, reject) => {
     const secret = process.env.JWT_SECRET;
     if (!secret) {
@@ -18,7 +18,7 @@ const signToken = (payload: string) => {
   });
 };
 
-const authenticateUser = (userEmail: string,password:string) => {
+const authenticateUser = (userEmail: string,password:string):Boolean => {
     if(userEmail=="aryanthapak@gmail.com" && password==="Aryan@@@"){
         return true;
     }
@@ -29,9 +29,9 @@ export const loginUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+):Promise<Response|void> => {
   try{
-    const { email, password }: CredentialInterface = req.body;
+    const { email, password }: ICredential = req.body;
   const isAuthenticated=authenticateUser(email,password);
   if (!isAuthenticated) {
     return res.status(401).json({
@@ -46,8 +46,7 @@ export const loginUser = async (
     message: "Login successful",
     token
   });
-  }
-
+  }  
   catch(err){
     next(new ApiError(500,"Something went wrong"));
   }

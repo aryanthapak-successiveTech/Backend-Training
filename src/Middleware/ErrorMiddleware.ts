@@ -8,7 +8,7 @@ export class ApiError extends Error{
     }
 }
 
-export const AppError=(error:ApiError,req:Request,res:Response,next:NextFunction)=>{
+export const AppError=(error:ApiError,req:Request,res:Response,next:NextFunction):Response=>{
     const errStatus=error.statusCode||500;
     const errMsg=error.message||"Something went wrong";
     console.error(error.stack);

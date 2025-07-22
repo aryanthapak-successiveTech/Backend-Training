@@ -15,7 +15,7 @@ export const decryptToken = (
   req: IRequestWithToken,
   res: Response,
   next: NextFunction
-) => {
+):void => {
   try {
 
     const token = req.headers.authorization?.split(" ")[1];

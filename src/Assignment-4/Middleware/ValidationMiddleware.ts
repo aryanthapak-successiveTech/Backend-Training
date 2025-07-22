@@ -14,7 +14,7 @@ export const validateUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+):Promise<Response|void> => {
   try {
     const { username, password, email } = req.body;
     if (!userSchema.validate({ username, password, email })) {
