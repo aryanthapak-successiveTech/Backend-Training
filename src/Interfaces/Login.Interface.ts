@@ -1,15 +1,15 @@
 import { Request } from "express";
 
-export interface TokenInterface {
+export interface IToken {
   email: string;
   role: "admin" | "user";
 }
 
-export interface RequestWithTokenInterface extends Request {
-  user?: TokenInterface;
+export interface IRequestWithToken extends Request {
+  user?: IToken;
 }
 
-export interface LoginInterface{
+export interface ILogin{
     email:string,
     password:string
 }

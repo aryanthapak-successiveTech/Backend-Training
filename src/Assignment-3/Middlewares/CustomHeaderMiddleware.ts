@@ -1,14 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 
-export const addCustomHeader = (headerName: string, headerValue: string) => {
-  return function (req: Request, res: Response, next: NextFunction) {
-    res.setHeader(headerName, headerValue);
-    next();
-  };
-};
+type ICustomHeader=(req: Request, res: Response, next: NextFunction)=>void
+
 
 export class CustomHeaderMiddleware {
-  addCustomHeader(headerName: string, headerValue: string) {
+  addCustomHeader(headerName: string, headerValue: string) :ICustomHeader{
     return function (req: Request, res: Response, next: NextFunction) {
       res.setHeader(headerName, headerValue);
       next();

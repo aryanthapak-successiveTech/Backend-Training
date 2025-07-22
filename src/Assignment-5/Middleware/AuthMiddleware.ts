@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
-import { RequestWithTokenInterface } from "../../Interfaces/Login.Interface.js";
+import { IRequestWithToken } from "../../Interfaces/Login.Interface.js";
 
 export class AuthMiddleware {
   decryptToken = (
-    req: RequestWithTokenInterface,
+    req: IRequestWithToken,
     res: Response,
     next: NextFunction
   ) => {

@@ -4,7 +4,7 @@ import routeBaseValidation from "../Config/ValidationConfig.js";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
 export class UrlMiddleware {
-  verifyParams = (req: Request, res: Response, next: NextFunction) => {
+  verifyParams = (req: Request, res: Response, next: NextFunction):Response|void => {
     const queryParams = Object.values(req.params);
     for (const param of queryParams) {
       if (Number(param)) {
@@ -17,7 +17,7 @@ export class UrlMiddleware {
     next();
   };
 
-  verifyLocation = async (req: Request, res: Response, next: NextFunction) => {
+  verifyLocation = async (req: Request, res: Response, next: NextFunction):Promise<Response|void> => {
     const ip = req.ip;
     const ipInfo = await axios.get(`http://ip-api.com/json/${ip}`);
     const country = ipInfo.data.country;
@@ -29,7 +29,7 @@ export class UrlMiddleware {
     }
     next();
   };
-  urlBasedValidate = (req: Request, res: Response, next: NextFunction) => {
+  urlBasedValidate = (req: Request, res: Response, next: NextFunction):Response|void => {
     const path: string = req.url;
     if (path in routeBaseValidation) {
       const validationSchema = routeBaseValidation[path];

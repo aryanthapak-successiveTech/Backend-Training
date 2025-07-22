@@ -11,7 +11,7 @@ const userSchema = Joi.object({
 });
 
 export class ValidationMiddleware {
-  validateUser = async (req: Request, res: Response, next: NextFunction) => {
+  validateUser = async (req: Request, res: Response, next: NextFunction):Promise<Response|void> => {
     try {
       const { username, password, email } = req.body;
       if (!userSchema.validate({ username, password, email })) {

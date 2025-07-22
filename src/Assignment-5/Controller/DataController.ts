@@ -2,14 +2,14 @@ import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 import { seedData } from "../../utils/seederUtil.js";
 import { dummyData } from "../../Assignment-2/mockData.js";
-import { RequestWithTokenInterface } from "../../Interfaces/Login.Interface.js";
+import { IRequestWithToken } from "../../Interfaces/Login.Interface.js";
 
 export class DataController {
   getDummyUsersData = (
-    req: RequestWithTokenInterface,
+    req: IRequestWithToken,
     res: Response,
     next: NextFunction
-  ) => {
+  ):Response|void => {
     try {
       const userDetails = req.user;
       const count = Number(req.params.count);

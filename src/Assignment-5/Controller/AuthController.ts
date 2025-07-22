@@ -2,13 +2,14 @@ import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 import { AuthService } from "../Service/AuthService.js";
 
+
 export class AuthController{
   private authService:AuthService
   constructor(){
     this.authService=new AuthService();
   }
 
-  loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  loginUser = async (req: Request, res: Response, next: NextFunction):Promise<Response|void> => {
   try {
     const { email: enteredEmail, password: enteredPassword } = req.body;
     const user = this.authService.findUserDetails(enteredEmail);

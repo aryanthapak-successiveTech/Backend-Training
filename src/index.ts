@@ -9,17 +9,7 @@ config();
 app.use(express.json());
 app.use(cookieParser());
 
-if(process.env.DATABASE_URL){
-  mongoose.connect(process.env.DATABASE_URL).catch((err)=>console.log(err));
-}
-const db=mongoose.connection;
-
-db.once("open",()=>{
-  console.log("DB is Connected")
-})
-
-app.set("trust-proxy", true);
-app.use("/api/v1/Assignments", assignmentRouter);
+app.use("/api/v1/assignments", assignmentRouter);
 app.use(AppError);
 const PORT = process.env.PORT || 8000;
 app.listen(8000, () => {
