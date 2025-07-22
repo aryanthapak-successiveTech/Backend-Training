@@ -15,5 +15,6 @@ export const AppError=(error:ApiError,req:Request,res:Response,next:NextFunction
     return res.status(errStatus).json({
         status:"Failed",
         message:errMsg
-    })
+    })  
 }
+
