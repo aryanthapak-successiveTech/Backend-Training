@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { AuthService } from "../Service/AuthService.js";
-import { CredentialInterface } from "../../Interfaces/User.Inteface";
+import { ICredential } from "../../Interfaces/User.Inteface";
 
 export class AuthController {
   private authService: AuthService | undefined;
@@ -9,9 +9,9 @@ export class AuthController {
     this.authService == new AuthService();
   }
 
-  login = async (req: Request, res: Response, next: NextFunction) => {
+  login = async (req: Request, res: Response, next: NextFunction):Promise<Response|void> => {
     try {
-      const { email, password }: CredentialInterface = req.body;
+      const { email, password }: ICredential = req.body;
       const isAuthenticated = this.authService?.authenticate(email, password);
       if (!isAuthenticated) {
         return res.status(401).json({

@@ -1,39 +1,43 @@
-export interface GeoInterface {
+export interface IGeo {
   lat: string;
   lng: string;
 }
-export interface AddressInterface {
+export interface IAddress {
   street: string;
   suite: string;
   city: string;
   zipcode: string;
-  geo: GeoInterface;
+  geo: IGeo;
 }
 
-export interface CompanyInterface {
+export interface ICompany {
   name: string;
   catchPhrase: string;
   bs: string;
 }
 
-export interface DataInterface {
+export interface IData {
   id: number;
   name: string;
   username: string;
   email: string;
-  address: AddressInterface;
+  address: IAddress;
   phone: string;
   website: string;
-  company: CompanyInterface;
+  company: ICompany;
 }
 
-export interface CredentialInterface {
+export interface ICount {
+  count: number;
+}
+
+export interface ICredential {
   email: string;
   password: string;
   role:"admin"|"user"
 }
 
-export interface StoredDataInterface {
+export interface IStoredData {
   username: string;
   email: string;
   password: string;

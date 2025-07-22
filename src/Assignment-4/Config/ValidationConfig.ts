@@ -1,8 +1,7 @@
 import Joi from "joi";
+import { IrouteBaseValidation } from "../../Interfaces/Validation.interface";
 
-interface routeBaseValidation{
-    [key:string]:Joi.ObjectSchema
-}
+
 const signupValidationSchema=Joi.object({
     username:Joi.string().alphanum().min(3).max(40).required(),
     password:Joi.string().min(8).required(),
@@ -14,7 +13,7 @@ const loginValidationSchema=Joi.object({
     password:Joi.string().min(8).required()
 })
 
-const routeBaseValidation:routeBaseValidation={
+const routeBaseValidation:IrouteBaseValidation={
     "/register":signupValidationSchema,
     "/login":loginValidationSchema
 }

@@ -1,9 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { ApiError } from "./ErrorMiddleware.js";
 
-export const rateLimit = (timeInterval: number, maxRequests: number) => {
+type RateLimit=(req:Request,res:Response,next:NextFunction)=>Response|void
+
+
+export const rateLimit = (timeInterval: number, maxRequests: number): RateLimit=> {
   const userMap = new Map<string, number[]>();
-  return function (req: Request, res: Response, next: NextFunction) {
+  return function (req: Request, res: Response, next: NextFunction):Response|void {
     const userIp = req.ip;
 
     const now = Date.now();

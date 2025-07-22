@@ -1,4 +1,4 @@
-import { TokenInterface } from "../../Interfaces/Login.Interface";
+import { IToken } from "../../Interfaces/Login.Interface";
 import { credentialData } from "../Data/CredentialData.js";
 import jwt from "jsonwebtoken"
 export class AuthService{
@@ -7,7 +7,7 @@ export class AuthService{
          return userDetails;
     }    
 
-    signToken = (payload: TokenInterface) => {
+    signToken = (payload: IToken) => {
   return new Promise((resolve, reject) => {
     const secret = process.env.JWT_SECRET;
     if (!secret) {
