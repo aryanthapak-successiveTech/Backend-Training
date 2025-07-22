@@ -8,7 +8,8 @@ export const verifyParams = (
   res: Response,
   next: NextFunction
 ):Response|void => {
-  const queryParams = Object.values(req.params);
+  try{
+    const queryParams = Object.values(req.params);
   for (const param of queryParams) {
     if (Number(param)) {
       return res.status(406).json({
@@ -16,8 +17,12 @@ export const verifyParams = (
         message: "Params should be numeric",
       });
     }
+    next();
   }
-  next();
+}
+  catch (err) {
+    next(new ApiError(500, "Something went wrong"));
+  }
 };
 
 export const verifyLocation = async (
@@ -34,7 +39,6 @@ export const verifyLocation = async (
       message: "Not available at your location",
     });
   }
-  next();
 };
 
 export const urlBasedValidate=(req:Request,res:Response,next:NextFunction):void=>{
@@ -46,5 +50,4 @@ export const urlBasedValidate=(req:Request,res:Response,next:NextFunction):void=
     next(new ApiError(400,"wrong details"));
   }
 }
-next();
 }

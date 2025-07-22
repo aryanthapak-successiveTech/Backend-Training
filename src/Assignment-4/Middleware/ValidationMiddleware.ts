@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import Joi from "joi";
+import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
 const userSchema = Joi.object({
   username: Joi.string().alphanum().min(3).max(30).required(),
@@ -24,9 +25,6 @@ export const validateUser = async (
     }
     next();
   } catch (err) {
-    return res.status(500).json({
-      status: "Failed",
-      message: "Internal Server error",
-    });
+    next(new ApiError(500, "Something went wrong"));
   }
 };

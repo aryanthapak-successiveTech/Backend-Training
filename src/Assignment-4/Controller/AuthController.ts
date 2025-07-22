@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
 interface ICredential {
   email: string;
@@ -28,8 +29,9 @@ export const loginUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-):Promise<Response> => {
-  const { email, password }: ICredential = req.body;
+):Promise<Response|void> => {
+  try{
+    const { email, password }: ICredential = req.body;
   const isAuthenticated=authenticateUser(email,password);
   if (!isAuthenticated) {
     return res.status(401).json({
@@ -44,4 +46,9 @@ export const loginUser = async (
     message: "Login successful",
     token
   });
+  }  
+  catch(err){
+    next(new ApiError(500,"Something went wrong"));
+  }
+  
 };
