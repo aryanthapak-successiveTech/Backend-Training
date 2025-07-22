@@ -2,17 +2,17 @@ import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
-interface UserDetailsInterface {
+interface IUserDetails {
   email: string;
   role: "admin" | "role";
 }
 
-interface RequestWithTokenInterface extends Request {
-  user?: UserDetailsInterface;
+interface IRequestWithToken extends Request {
+  user?: IUserDetails;
 }
 
 export const decryptToken = (
-  req: RequestWithTokenInterface,
+  req: IRequestWithToken,
   res: Response,
   next: NextFunction
 ) => {

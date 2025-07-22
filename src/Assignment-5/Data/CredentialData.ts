@@ -1,10 +1,10 @@
-interface CredentialInterface{
+interface ICredential{
     email:string,
     password:string,
     role:"admin"|"user"
 }
 
-export const credentialData:CredentialInterface[]=[
+export const credentialData:ICredential[]=[
     {
         email:"aryanthapak@gmail.com",
         password:"Aryan@@@",
