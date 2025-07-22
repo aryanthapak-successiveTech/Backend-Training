@@ -7,13 +7,13 @@ const detailsValidationSchema=Joi.object({
     password:Joi.string().required().min(8)
 })
 
-interface LoginInterface{
+interface ILogin{
     email:string,
     password:string
 }
 
 export const validateDetails=(req:Request,res:Response,next:NextFunction)=>{
-    const {email,password}:LoginInterface=req.body;
+    const {email,password}:ILogin=req.body;
     const {error}=detailsValidationSchema.validate({email,password});
     if(error){
         return next(new ApiError(400,error.message));

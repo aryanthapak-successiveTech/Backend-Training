@@ -3,12 +3,12 @@ import { credentialData } from "../Data/CredentialData.js";
 import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
-interface TokenInterface {
+interface IToken {
   email: string;
   role: "admin" | "user";
 }
 
-const signToken = (payload: TokenInterface) => {
+const signToken = (payload: IToken) => {
   return new Promise((resolve, reject) => {
     const secret = process.env.JWT_SECRET;
     if (!secret) {

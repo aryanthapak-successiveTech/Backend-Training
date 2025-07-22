@@ -3,17 +3,17 @@ import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 import { seedData } from "../../utils/seederUtil.js";
 import { dummyData } from "../../Assignment-2/mockData.js";
 
-interface UserDetailsInterface {
+interface IUserDetails {
   email: string;
   role: "admin" | "role";
 }
 
-interface RequestWithTokenInterface extends Request {
-  user?: UserDetailsInterface;
+interface IRequestWithToken extends Request {
+  user?: IUserDetails;
 }
 
 export const getDummyUsersData = (
-  req: RequestWithTokenInterface,
+  req: IRequestWithToken,
   res: Response,
   next: NextFunction
 ) => {
