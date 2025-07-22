@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import Joi from "joi";
+import { ApiError } from "../../Middleware/ErrorMiddleware.js";
 
 const userSchema = Joi.object({
   username: Joi.string().alphanum().min(3).max(30).required(),
