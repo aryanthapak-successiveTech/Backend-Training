@@ -10,21 +10,22 @@ const userSchema = Joi.object({
   password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")).required(),
 });
 
-export const validateUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const { username, password, email } = req.body;
-    if (!userSchema.validate({ username, password, email })) {
-      return res.status(401).json({
+export class ValidationMiddleware {
+  validateUser = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { username, password, email } = req.body;
+      if (!userSchema.validate({ username, password, email })) {
+        return res.status(401).json({
+          status: "Failed",
+          message: "Details aren't valid",
+        });
+      }
+      next();
+    } catch (err) {
+      return res.status(500).json({
         status: "Failed",
-        message: "Details aren't valid",
+        message: "Internal Server error",
       });
     }
-    next();
-  } catch (err) {
-    next(new ApiError(500, "Something went wrong"));
-  }
-};
+  };
+}

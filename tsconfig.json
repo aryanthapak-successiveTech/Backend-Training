@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es2022",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": "./",
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

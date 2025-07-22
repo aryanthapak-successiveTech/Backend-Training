@@ -1,17 +1,17 @@
 import { NextFunction, Request, Response } from "express";
 
-interface RequestWithHeaderInterface extends Request {
-  customHeader?: string;
-}
-
 export const addCustomHeader = (headerName: string, headerValue: string) => {
-  return function (
-    req: RequestWithHeaderInterface,
-    res: Response,
-    next: NextFunction
-  ) {
-    const customHeader = req.header(headerName);
-    req.customHeader = headerValue;
+  return function (req: Request, res: Response, next: NextFunction) {
+    res.setHeader(headerName, headerValue);
     next();
   };
 };
+
+export class CustomHeaderMiddleware {
+  addCustomHeader(headerName: string, headerValue: string) {
+    return function (req: Request, res: Response, next: NextFunction) {
+      res.setHeader(headerName, headerValue);
+      next();
+    };
+  }
+}
