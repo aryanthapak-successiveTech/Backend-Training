@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.set("trust-proxy", true);
 
-app.use("/api/v1/Assignments", assignmentRouter);
+app.use("/api/v1/assignments", assignmentRouter);
 app.use(AppError);
 const PORT = process.env.PORT || 8000;
 app.listen(8000, () => {

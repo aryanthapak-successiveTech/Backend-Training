@@ -8,7 +8,13 @@ interface IToken {
   role: "admin" | "user";
 }
 
-const signToken = (payload: IToken) => {
+interface ICredential{
+    email:string,
+    password:string,
+    role:"admin"|"user"
+}
+
+const signToken = (payload: IToken):Promise<String> => {
   return new Promise((resolve, reject) => {
     const secret = process.env.JWT_SECRET;
     if (!secret) {
@@ -19,12 +25,12 @@ const signToken = (payload: IToken) => {
   });
 };
 
-const findUserDetails = (email: string) => {
+const findUserDetails = (email: string):ICredential|undefined => {
   const userDetails = credentialData.find((user) => user.email === email);
   return userDetails;
 };
 
-export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+export const loginUser = async (req: Request, res: Response, next: NextFunction):Promise<Response|void> => {
   try {
     const { email: enteredEmail, password: enteredPassword } = req.body;
     const user = findUserDetails(enteredEmail);

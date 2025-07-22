@@ -7,7 +7,7 @@ export const verifyParams = (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+):Response|void => {
   const queryParams = Object.values(req.params);
   for (const param of queryParams) {
     if (Number(param)) {
@@ -24,7 +24,7 @@ export const verifyLocation = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+):Promise<Response|undefined> => {
   const ip = req.ip;
   const ipInfo = await axios.get(`http://ip-api.com/json/${ip}`);
   const country = ipInfo.data.country;
@@ -37,7 +37,7 @@ export const verifyLocation = async (
   next();
 };
 
-export const urlBasedValidate=(req:Request,res:Response,next:NextFunction)=>{
+export const urlBasedValidate=(req:Request,res:Response,next:NextFunction):void=>{
   const path:string=req.url;
   if (path in routeBaseValidation) {
   const validationSchema = routeBaseValidation[path];

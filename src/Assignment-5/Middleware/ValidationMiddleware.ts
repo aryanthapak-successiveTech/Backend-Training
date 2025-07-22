@@ -12,7 +12,7 @@ interface ILogin{
     password:string
 }
 
-export const validateDetails=(req:Request,res:Response,next:NextFunction)=>{
+export const validateDetails=(req:Request,res:Response,next:NextFunction):void=>{
     const {email,password}:ILogin=req.body;
     const {error}=detailsValidationSchema.validate({email,password});
     if(error){
