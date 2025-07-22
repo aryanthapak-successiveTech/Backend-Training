@@ -12,6 +12,15 @@ app.use(cookieParser());
 app.use("/api/v1/assignments", assignmentRouter);
 app.use(AppError);
 
+if(process.env.DATABASE_URL){
+  mongoose.connect(process.env.DATABASE_URL).catch(err=>console.error(err));
+}
+
+const dbConnection=mongoose.connection;
+dbConnection.on("open",()=>{
+  console.log("Connected to Database")
+})
+
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is listening on ${PORT}`);

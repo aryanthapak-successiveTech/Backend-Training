@@ -1,6 +1,7 @@
+import { ICountry } from "../../Interfaces/CountryInterface.js";
 import countryModel from "../Models/Countries.js";
 export class SeedService{
-    async seed(){
+    async seed():Promise<ICountry[]>{
         const sports=["Cricket","Football","Basket Ball","Chess"];
 
         const countries=["Australia","India","USA","UAE"];
@@ -11,7 +12,7 @@ export class SeedService{
                 sports:sports[selectRandomSport]
             }
         })
-    const newData=await countryModel.insertMany(data);
+    const newData:ICountry[]=await countryModel.insertMany(data);
     return newData;
     }
 }
