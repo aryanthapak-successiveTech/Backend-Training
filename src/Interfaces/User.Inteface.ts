@@ -42,3 +42,18 @@ export interface IStoredData {
   email: string;
   password: string;
 }
+
+export interface IUser{
+  firstName:string,
+  lastName:string,
+  age:number,
+  password:string,
+  email:string
+}
+
+export interface ISafeUser{
+  firstName:string,
+  lastName:string,
+  age:number,
+  email:string
+}
