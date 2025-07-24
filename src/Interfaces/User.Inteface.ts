@@ -1,3 +1,5 @@
+import { Document } from "mongoose";
+
 export interface IGeo {
   lat: string;
   lng: string;
@@ -57,3 +59,8 @@ export interface ISafeUser{
   age:number,
   email:string
 }
+
+export interface IUserModel extends Document,IUser{
+  authenticateUser:(password:string)=>Promise<boolean>
+}
+

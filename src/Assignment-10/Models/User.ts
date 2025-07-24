@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import bcrypt from "bcryptjs"
-
-const userSchema=new mongoose.Schema({
+import { IUserModel } from "../../Interfaces/User.Inteface";
+const userSchema=new mongoose.Schema<IUserModel>({
     firstName:{
         type:String,
         required:[true,"first name is required"]
@@ -25,11 +25,16 @@ const userSchema=new mongoose.Schema({
     }
 })
 
-userSchema.pre("save",async function(next){
+userSchema.pre("save",async function(next):Promise<void>{
     this.password=await bcrypt.hash(this.password,12);
     next();
-})
+});
 
-const userModel=mongoose.model("Person",userSchema);
+userSchema.methods.authenticateUser=async function(candidatePassword:string):Promise<boolean>{
+    const isAuthenticated=await bcrypt.compare(candidatePassword,this.password);
+    return isAuthenticated;
+}
+
+const userModel=mongoose.model("User",userSchema);
 
 export default userModel;
