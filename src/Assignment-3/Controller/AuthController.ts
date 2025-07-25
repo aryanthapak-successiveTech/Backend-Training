@@ -6,7 +6,7 @@ export class AuthController {
   private authService: AuthService | undefined;
 
   constructor() {
-    this.authService == new AuthService();
+    this.authService = new AuthService();
   }
 
   login = async (req: Request, res: Response, next: NextFunction):Promise<Response|void> => {

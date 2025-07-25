@@ -24,10 +24,10 @@ export class UserController {
     try {
       const { username, password, email } = req.body;
       const isStoredData = await this.writeFile({ username, password, email });
-      isStoredData.password = "";
+      const {password:userPassword,...userInfoData}=isStoredData
       return res.status(200).json({
         status: "Success",
-        data: isStoredData,
+        data: userInfoData,
       });
     } catch (err) {
       console.log(err);
