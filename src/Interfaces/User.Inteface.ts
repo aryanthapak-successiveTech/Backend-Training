@@ -60,7 +60,12 @@ export interface ISafeUser{
   email:string
 }
 
+export enum EUser{
+  admin="admin",
+  user="user"
+}
 export interface IUserModel extends Document,IUser{
   authenticateUser:(password:string)=>Promise<boolean>
+  role?:EUser.admin|EUser.user
 }
 
