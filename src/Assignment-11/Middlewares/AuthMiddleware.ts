@@ -11,6 +11,7 @@ export class AuthMiddleware {
   ) => {
     try {
       const token = req.headers.authorization?.split(" ")[1];
+      console.log(token);
       if (!token) {
         return next(new ApiError(404, "Token not found"));
       }

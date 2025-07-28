@@ -22,11 +22,11 @@ const userSchema=new mongoose.Schema<IUserModel>({
     password:{
         type:String,
         required:[true,"Password is required"],
-        select:false
     },
     role:{
         type:String,
-        enum:["admin","user"]
+        enum:["admin","user"],
+        required:true
     }
 })
 

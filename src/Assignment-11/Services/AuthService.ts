@@ -36,7 +36,7 @@ export class AuthService {
     if(!process.env.JWT_SECRET){
         throw new Error("No token found");
     }
-    const token= jwt.sign({email},process.env.JWT_SECRET);
+    const token= jwt.sign({email,role:user.role},process.env.JWT_SECRET);
     return token;
   };
 }

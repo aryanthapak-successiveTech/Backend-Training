@@ -25,7 +25,7 @@ export class AuthController {
     }
   };
 
-  loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  loginUser = async (req: Request, res: Response, next: NextFunction) :Promise<Response|void> => {
     try {
       const { email, password } = req.body;
       const token = await this.authService.verifyUser(email, password);
