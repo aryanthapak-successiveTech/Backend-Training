@@ -21,7 +21,12 @@ const userSchema=new mongoose.Schema<IUserModel>({
     },
     password:{
         type:String,
-        required:[true,"Password is required"]
+        required:[true,"Password is required"],
+    },
+    role:{
+        type:String,
+        enum:["admin","user"],
+        required:true
     }
 })
 
@@ -35,6 +40,6 @@ userSchema.methods.authenticateUser=async function(candidatePassword:string):Pro
     return isAuthenticated;
 }
 
-const userModel=mongoose.model("OldUser",userSchema);
+const userModel=mongoose.model("User",userSchema);
 
 export default userModel;

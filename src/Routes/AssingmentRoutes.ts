@@ -6,6 +6,7 @@ import assignment5router from "../Assignment-5/app.js";
 import assignment7router from "../Assignment-7/app.js";
 import assignment9router from "../Assignment-9/app.js";
 import assignment10router from "../Assignment-10/app.js";
+import assignment11router from "../Assignment-11/app.js";
 const router = express.Router();
 
 router.use("/assignment-2", assignment2Router);
@@ -15,4 +16,5 @@ router.use("/assignment-5", assignment5router);
 router.use("/assignment-7", assignment7router);
 router.use("/assignment-9",assignment9router);
 router.use("/assignment-10",assignment10router);
+router.use("/assignment-11",assignment11router);
 export default router;
