@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "jest",
-    "dev": "nodemon src/index.ts",
+    "dev:ts": "nodemon Typescript-Backend/src/index.ts",
+    "dev:js": "nodemon Javascript-Backend/src/index.js",
     "build": "tsc",
     "start": "nodemon dist/index.js"
   },
