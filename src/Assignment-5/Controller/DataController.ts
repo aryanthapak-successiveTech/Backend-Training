@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
-import { seedData } from "../../utils/seederUtil.js";
-import { dummyData } from "../../Assignment-2/mockData.js";
-import { IRequestWithToken } from "../../Interfaces/Login.Interface.js";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
+import { seedData } from "../../utils/seederUtil";
+import { dummyData } from "../../Assignment-2/mockData";
+import { IRequestWithToken } from "../../Interfaces/Login.Interface";
 
 export class DataController {
   getDummyUsersData = (

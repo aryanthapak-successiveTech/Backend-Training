@@ -1,7 +1,7 @@
 import { NextFunction, Response } from "express";
 import jwt from "jsonwebtoken";
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
-import { IRequestWithToken } from "../../Interfaces/Login.Interface.js";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
+import { IRequestWithToken } from "../../Interfaces/Login.Interface";
 
 export class AuthMiddleware {
   adminAccess = (

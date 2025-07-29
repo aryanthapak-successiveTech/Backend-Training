@@ -2,11 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { seedData } from "../../utils/seederUtil.js";
-import { IStoredData } from "../../Interfaces/User.Inteface.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { seedData } from "../../utils/seederUtil";
+import { IStoredData } from "../../Interfaces/User.Inteface";
 
 export class UserController {
   writeFile = (data: IStoredData): Promise<IStoredData> => {

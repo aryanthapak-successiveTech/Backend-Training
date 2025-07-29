@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { dummyData } from "../../Assignment-2/mockData.js";
+import { dummyData } from "../../Assignment-2/mockData";
 
 export class DataController {
 

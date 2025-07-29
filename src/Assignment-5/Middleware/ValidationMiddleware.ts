@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import Joi from "joi";
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
-import { ILogin } from "../../Interfaces/Login.Interface.js";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
+import { ILogin } from "../../Interfaces/Login.Interface";
 
 const detailsValidationSchema = Joi.object({
   email: Joi.string().required().email(),

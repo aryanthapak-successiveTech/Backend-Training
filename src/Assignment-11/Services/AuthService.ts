@@ -1,7 +1,7 @@
-import userModel from "../Models/User.js";
+import userModel from "../Models/User";
 import { MongoError } from "mongodb";
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
-import { ISafeUser, IUser } from "../../Interfaces/User.Inteface.js";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
+import { ISafeUser, IUser } from "../../Interfaces/User.Inteface";
 import jwt from "jsonwebtoken"
 export class AuthService {
   private User;

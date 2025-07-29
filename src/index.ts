@@ -1,12 +1,12 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import assignmentRouter from "./Routes/AssingmentRoutes.js";
+import assignmentRouter from "./Routes/AssingmentRoutes";
 import { config } from "dotenv";
-import { AppError } from "./Middleware/ErrorMiddleware.js";
+import { AppError } from "./Middleware/ErrorMiddleware";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import cors from "cors";
-import { SecurityHeaders } from "./Middleware/SecurityHeaders.js";
+import { SecurityHeaders } from "./Middleware/SecurityHeaders";
 
 const app = express();
 config();

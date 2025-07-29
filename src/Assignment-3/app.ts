@@ -1,9 +1,9 @@
 import express from "express";
-import { AuthController } from "./Controller/AuthController.js";
-import { AuthMiddleware } from "./Middlewares/AuthMiddleware.js";
-import { DataController } from "./Controller/DataController.js";
-import { LogMiddleware } from "./Middlewares/LogMiddleware.js";
-import { rateLimit } from "../Middleware/RateLimiterMiddleware.js";
+import { AuthController } from "./Controller/AuthController";
+import { AuthMiddleware } from "./Middlewares/AuthMiddleware";
+import { DataController } from "./Controller/DataController";
+import { LogMiddleware } from "./Middlewares/LogMiddleware";
+import { rateLimit } from "../Middleware/RateLimiterMiddleware";
 const authRouter = express.Router();
 const authController = new AuthController();
 const logMiddleware = new LogMiddleware();

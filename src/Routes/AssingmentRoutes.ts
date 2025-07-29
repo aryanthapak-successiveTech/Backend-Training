@@ -1,12 +1,12 @@
 import express from "express";
-import assignment2Router from "../Assignment-2/app.js";
-import assignment3Router from "../Assignment-3/app.js";
-import assignment4router from "../Assignment-4/app.js";
-import assignment5router from "../Assignment-5/app.js";
-import assignment7router from "../Assignment-7/app.js";
-import assignment9router from "../Assignment-9/app.js";
-import assignment10router from "../Assignment-10/app.js";
-import assignment11router from "../Assignment-11/app.js";
+import assignment2Router from "../Assignment-2/app";
+import assignment3Router from "../Assignment-3/app";
+import assignment4router from "../Assignment-4/app";
+import assignment5router from "../Assignment-5/app";
+import assignment7router from "../Assignment-7/app";
+import assignment9router from "../Assignment-9/app";
+import assignment10router from "../Assignment-10/app";
+import assignment11router from "../Assignment-11/app";
 const router = express.Router();
 
 router.use("/assignment-2", assignment2Router);

@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { dummyData } from "../mockData.js";
+import { dummyData } from "../mockData";
 
 export const getUsers = async (
   req: Request,

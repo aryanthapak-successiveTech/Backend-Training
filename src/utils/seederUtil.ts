@@ -1,7 +1,7 @@
 interface ISeededData{
-  id:Number,
-  Name:String,
-  College:String
+  id:number,
+  Name:string,
+  College:string
 }
 export const seedData = (count:number):ISeededData[] => {
   const dummyData:ISeededData[] = Array.from({ length: count }, (ele, idx) => {

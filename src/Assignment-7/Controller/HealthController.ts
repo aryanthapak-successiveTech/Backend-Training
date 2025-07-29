@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { generateRandomHealth } from "../../utils/generateRandomHealth.js";
+import { generateRandomHealth } from "../../utils/generateRandomHealth";
 
 export class HealthController{
   showHealth = (req: Request, res: Response, next: NextFunction) => {

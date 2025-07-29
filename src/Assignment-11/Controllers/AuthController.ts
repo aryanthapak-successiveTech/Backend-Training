@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { AuthService } from "../Services/AuthService.js";
-import { IUser } from "../../Interfaces/User.Inteface.js";
+import { AuthService } from "../Services/AuthService";
+import { IUser } from "../../Interfaces/User.Inteface";
 
 export class AuthController {
   private authService: AuthService;

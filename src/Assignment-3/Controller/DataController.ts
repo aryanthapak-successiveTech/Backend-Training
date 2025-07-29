@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { seedData } from "../../utils/seederUtil.js";
-import { ICount } from "../../Interfaces/User.Inteface.js";
+import { seedData } from "../../utils/seederUtil";
+import { ICount } from "../../Interfaces/User.Inteface";
 
 export class DataController {
   dataSeeder = (req: Request, res: Response, next: NextFunction) => {

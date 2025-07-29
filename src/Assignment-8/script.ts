@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { SeedService } from "./Service/SeedService.js";
+import { SeedService } from "./Service/SeedService";
 import { config } from "dotenv";
 
 config();

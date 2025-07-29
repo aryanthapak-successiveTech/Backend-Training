@@ -1,10 +1,10 @@
 import express from "express";
-import { ValidationMiddleware } from "./Middleware/ValidationMiddleware.js";
-import { AuthController} from "./Controller/AuthController.js";
-import { AuthMiddleware} from "./Middleware/AuthMiddleware.js";
-import { DataController } from "./Controller/DataController.js";
-import { ErrorController} from "./Controller/ErrorController.js";
-import { ParamMiddleware } from "./Middleware/ParamMiddleware.js";
+import { ValidationMiddleware } from "./Middleware/ValidationMiddleware";
+import { AuthController} from "./Controller/AuthController";
+import { AuthMiddleware} from "./Middleware/AuthMiddleware";
+import { DataController } from "./Controller/DataController";
+import { ErrorController} from "./Controller/ErrorController";
+import { ParamMiddleware } from "./Middleware/ParamMiddleware";
 
 const router=express.Router();
 

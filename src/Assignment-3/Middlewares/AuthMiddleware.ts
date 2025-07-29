@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express"
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
 
 export class AuthMiddleware{
     checkAuth=(req:Request,res:Response,next:NextFunction):void=>{

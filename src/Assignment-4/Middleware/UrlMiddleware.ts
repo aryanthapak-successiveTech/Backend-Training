@@ -1,7 +1,7 @@
 import axios from "axios";
 import { NextFunction, Request, Response } from "express";
-import routeBaseValidation from "../Config/ValidationConfig.js";
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
+import routeBaseValidation from "../Config/ValidationConfig";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
 
 export class UrlMiddleware {
   verifyParams = (req: Request, res: Response, next: NextFunction):Response|void => {

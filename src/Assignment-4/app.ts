@@ -1,8 +1,8 @@
 import express from "express";
-import { ValidationMiddleware } from "./Middleware/ValidationMiddleware.js";
-import {  UserController } from "./Controller/UserController.js";
-import { UrlMiddleware } from "./Middleware/UrlMiddleware.js";
-import { AuthController } from "./Controller/AuthController.js";
+import { ValidationMiddleware } from "./Middleware/ValidationMiddleware";
+import {  UserController } from "./Controller/UserController";
+import { UrlMiddleware } from "./Middleware/UrlMiddleware";
+import { AuthController } from "./Controller/AuthController";
 
 const authController = new AuthController();
 const userController=new UserController();

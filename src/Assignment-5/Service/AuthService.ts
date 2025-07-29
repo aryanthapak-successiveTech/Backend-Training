@@ -1,5 +1,5 @@
 import { IToken } from "../../Interfaces/Login.Interface";
-import { credentialData } from "../Data/CredentialData.js";
+import { credentialData } from "../Data/CredentialData";
 import jwt from "jsonwebtoken"
 export class AuthService{
     findUserDetails(email:string){

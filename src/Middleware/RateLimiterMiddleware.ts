@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ApiError } from "./ErrorMiddleware.js";
+import { ApiError } from "./ErrorMiddleware";
 
 type RateLimit=(req:Request,res:Response,next:NextFunction)=>Response|void
 

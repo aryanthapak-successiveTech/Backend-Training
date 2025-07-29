@@ -1,5 +1,5 @@
-import { ICountry } from "../../Interfaces/CountryInterface.js";
-import countryModel from "../Models/Countries.js";
+import { ICountry } from "../../Interfaces/CountryInterface";
+import countryModel from "../Models/Countries";
 export class SeedService{
     async seed():Promise<ICountry[]>{
         const sports=["Cricket","Football","Basket Ball","Chess"];

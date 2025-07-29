@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { ApiError } from "../../Middleware/ErrorMiddleware.js";
-import { AuthService } from "../Service/AuthService.js";
+import { ApiError } from "../../Middleware/ErrorMiddleware";
+import { AuthService } from "../Service/AuthService";
 
 
 export class AuthController{
