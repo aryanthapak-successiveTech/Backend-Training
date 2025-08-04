@@ -1,6 +1,6 @@
 {
   "execMap": {
-    "ts": "node --loader ts-node/esm src/index.ts"
+    "ts": "ts-node Typescript-Backend/src/index.ts"
   },
   "watch": [
     "src/**/*.ts"

@@ -1,0 +1,46 @@
+import { NextFunction, Request, Response } from "express";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { seedData } from "../../utils/seederUtil";
+import { IStoredData } from "../../Interfaces/User.Inteface";
+
+export class UserController {
+  writeFile = (data: IStoredData): Promise<IStoredData> => {
+    return new Promise<IStoredData>((resolve, reject) => {
+      const storeData = JSON.stringify(data);
+      const newFilePath = path.join(`${__dirname}/../StoredData.json`);
+      fs.writeFile(newFilePath, storeData, (error) => {
+        reject(error);
+      });
+      resolve(data);
+    });
+  };
+
+  registerUser = async (req: Request, res: Response): Promise<Response> => {
+    try {
+      const { username, password, email } = req.body;
+      const isStoredData = await this.writeFile({ username, password, email });
+      const {password:userPassword,...userInfoData}=isStoredData
+      return res.status(200).json({
+        status: "Success",
+        data: userInfoData,
+      });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json({
+        status: "Failed",
+        message: "Something went wrong",
+      });
+    }
+  };
+
+  getSeedData = (req: Request, res: Response): Response => {
+    const { count } = req.params;
+    const users = seedData(Number(count));
+    return res.status(200).json({
+      status: "Success",
+      data: users,
+    });
+  };
+}
